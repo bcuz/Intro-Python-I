@@ -22,3 +22,23 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+# merika
+calendar.setfirstweekday(calendar.SUNDAY)
+currentMonth = datetime.now().month
+currentYear = datetime.now().year
+
+if len(sys.argv) == 1:
+	print(calendar.month(currentYear, currentMonth, 2, 1))
+elif len(sys.argv) == 2:
+	# assuming they're giving the month as a number
+	mnthToString = int(sys.argv[1])
+	print(calendar.month(currentYear, mnthToString, 2, 1))
+elif len(sys.argv) == 3:
+	mnthToString = int(sys.argv[1])
+	yearToString = int(sys.argv[2])
+	print(calendar.month(yearToString, mnthToString, 2, 1))
+else:
+	print("this program takes a max of 3 arguments. example: 14_cal.py month [year]");
+
+
